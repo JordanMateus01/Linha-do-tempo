@@ -1,4 +1,4 @@
-* {/* tira a padronização do navegador*/
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -8,7 +8,7 @@
     font-size: 16px;
 }
 
-::-webkit-scrollbar {/*-webkit -> customiza as configurações padroes do navegador*/
+::-webkit-scrollbar {
     width: 8px;
 }
 
@@ -36,27 +36,27 @@ body {
     background-color: #121215;
     color: #eaeaea;
     font-family: 'Roboto', sans-serif;
-    display: grid;/*  */
+    display: grid;
     grid-template-areas: "profile timeline";
-    grid-template-columns: 1fr 1fr; /* para cada coluna terá um fração da página para cada, metade. */
-    grid-template-rows: 100vh; /* */
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 100vh;
 }
 
 nav {
-    padding: 64px; /* define o tamnho da nav */
+    padding: 64px;
     grid-area: timeline;
 
-    overflow-y: scroll; /* apenas o lado direito irá scrollar */
+    overflow-y: scroll;
 
     animation: entering 0.7s ease-in-out;
 }
 
 .container {
-    display: flex; /* deixa os elementos com a posição flexível */
-    flex-direction: column; /* coloca as caixas uma em cima das outras */
-    gap: 16px; /* espaçamento entre as caixas */
-    text-decoration: none;/* tira a decoração do texto */
-    margin-bottom: 64px;/* adiciona margem para a caixa de baixo */
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    text-decoration: none;
+    margin-bottom: 64px;
 }
 
 .container small {
@@ -70,29 +70,29 @@ nav {
 }
 
 .container img {
-width: 100%;/* ocupa 100% a tela*/
-height: 280px;/*altura do elemento */
-object-fit: cover; /* mantem o tamanho padrão da imagem, não estica.*/
-border-radius: 8px; /* arredonda a imagem*/
+width: 100%;
+height: 280px;
+object-fit: cover;
+border-radius: 8px;
 
-transition: transform 0.3s ease-in-out;/* animação */
+transition: transform 0.3s ease-in-out;
 }
 
 .container div {
     width: 100%;
     height: 280px;
-    overflow: hidden;/* o conteudo que exceder, será escondido */
+    overflow: hidden;
     border-radius: 8px;
 }
 
-.container:hover img {/* quando passar o mouse em cima do elemento faça algo*/
-    transform: scale(1.1); /* aumenta o tamanho da imagem */
+.container:hover img {
+    transform: scale(1.1);
 }
 
 .container p {
     font-size: 1.2rem;
     color: #bebebf;
-    line-height: 28px;/*defini a altura das linhas*/
+    line-height: 28px;
 }
 
 aside {
@@ -119,8 +119,8 @@ aside * {
 }
 
 aside img:nth-child(2) {
-    width: 160px;
-    height: 160px;
+    width: 180px;
+    height: 180px;
     border-radius: 50%;
 
     border: 4px solid transparent;
