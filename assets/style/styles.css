@@ -1,0 +1,160 @@
+* {/* tira a padronização do navegador*/
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    font-size: 16px;
+}
+
+::-webkit-scrollbar {/*-webkit -> customiza as configurações padroes do navegador*/
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: #2c2c31;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #575759;
+}
+
+@keyframes entering {
+    from {
+        opacity: 0;
+        transform: translateY(-200px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+body {
+    background-color: #121215;
+    color: #eaeaea;
+    font-family: 'Roboto', sans-serif;
+    display: grid;/*  */
+    grid-template-areas: "profile timeline";
+    grid-template-columns: 1fr 1fr; /* para cada coluna terá um fração da página para cada, metade. */
+    grid-template-rows: 100vh; /* */
+}
+
+nav {
+    padding: 64px; /* define o tamnho da nav */
+    grid-area: timeline;
+
+    overflow-y: scroll; /* apenas o lado direito irá scrollar */
+
+    animation: entering 0.7s ease-in-out;
+}
+
+.container {
+    display: flex; /* deixa os elementos com a posição flexível */
+    flex-direction: column; /* coloca as caixas uma em cima das outras */
+    gap: 16px; /* espaçamento entre as caixas */
+    text-decoration: none;/* tira a decoração do texto */
+    margin-bottom: 64px;/* adiciona margem para a caixa de baixo */
+}
+
+.container small {
+    color: #b3b3bf;
+    font-size: 0.75rem;
+}
+
+.container h1 {
+    font-size: 2rem;
+    color: #eaeaea;
+}
+
+.container img {
+width: 100%;/* ocupa 100% a tela*/
+height: 280px;/*altura do elemento */
+object-fit: cover; /* mantem o tamanho padrão da imagem, não estica.*/
+border-radius: 8px; /* arredonda a imagem*/
+
+transition: transform 0.3s ease-in-out;/* animação */
+}
+
+.container div {
+    width: 100%;
+    height: 280px;
+    overflow: hidden;/* o conteudo que exceder, será escondido */
+    border-radius: 8px;
+}
+
+.container:hover img {/* quando passar o mouse em cima do elemento faça algo*/
+    transform: scale(1.1); /* aumenta o tamanho da imagem */
+}
+
+.container p {
+    font-size: 1.2rem;
+    color: #bebebf;
+    line-height: 28px;/*defini a altura das linhas*/
+}
+
+aside {
+    grid-area: profile;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+
+    border-right: 1px solid;
+    border-image: linear-gradient(#727275, #2c2c31) 1;
+
+    background-image: url(../img/Background.svg);
+    background-position: top right;
+    background-repeat: no-repeat;
+    background-size: auto 100;
+
+}
+
+aside * {
+    animation: entering 0.7s ease-in-out;
+}
+
+aside img:nth-child(2) {
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+
+    border: 4px solid transparent;
+    background: linear-gradient(#d39e33, #ed5636, #633bb6) padding-box, linear-gradient(260deg, #d39e33, #ed5636, #633bb6) border-box;
+}
+
+aside p {
+    font-size: 2rem;
+    text-align: center;
+}
+
+aside span {
+    font-size: 0.75rem;
+    color: #9e9ea0;
+}
+
+@media (max-width: 768px){
+    :root {
+        font-size: 14px;
+    }
+
+    body {
+        grid-template-columns: 1fr;
+        grid-template-rows: 0.2fr 0.8fr;
+        grid-template-areas: "profile" "timeline";
+    }
+
+    aside {
+        border-right: none;
+        padding: 32px 12px;
+    }
+    
+    nav {
+        overflow: visible;
+        padding: 22px;
+    }
+}
